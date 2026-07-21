@@ -28,6 +28,8 @@ class UserProfile:
     favorite_mood: str
     target_energy: float
     likes_acoustic: bool
+    target_valence: float = 0.5
+    target_danceability: float = 0.5
 
 class Recommender:
     """

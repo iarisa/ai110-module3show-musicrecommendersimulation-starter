@@ -30,13 +30,22 @@ In the real world, music recommender systems use both collaborative filtering an
 - favorite_genre
 - favorite_mood
 - target_energy
+- target_valence
+- target_danceability
 
+My `Recommender` will use the following weight-based point system to score each song against the `UserProfile` preferences:
+- genre: 3
+- mood: 1.5
+- energy: 0.7
+- valence: 0.5
+- danceability: 0.3
+
+Genre and mood will get the full points for exact matches, while the remaining features will be computed numerically by the function `weight * (1 - abs(song_value - target_value))`. The raw score (max possible = 6) is then normalized to a 0-100 scale for display.
+
+Some biases could occur since genre and mood make up 4.5 of the possible points, so songs that are closer in the other areas (e.g. energy, valence, danceability) do not have as much impact. This could cause listeners to only be exposed to songs within their genre and mood. Also, if a genre or mood does not match exactly, then it will lose all points instead of being weighed partially (e.g. "hip hop" doesn't equal "rap" but they are very similar).
 
 Some prompts to answer:
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
 - How does your `Recommender` compute a score for each song
 - How do you choose which songs to recommend
 
