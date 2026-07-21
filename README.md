@@ -17,7 +17,20 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+In the real world, music recommender systems use both collaborative filtering and content-based filtering. The collaborative filtering method involves using data (e.g. liked songs, skipped songs) from listeners with a similar music taste to generate recommendations for listeners. This helps listeners find songs that they may not have heard already but will likely enjoy. The content-based filtering method involves using a song's features in isolation (e.g. genre, tempo, energy) and recommending songs that have similar attributes. This helps when there isn't enough data to compare listening behaviors across users. My version will prioritize the content-based filtering system since the available data contains attributes about each songs rather than other users' listening behavior. It will use the following:
+
+`Song` features:
+- genre
+- mood
+- energy
+- valence
+- danceability
+
+`UserProfile` features:
+- favorite_genre
+- favorite_mood
+- target_energy
+
 
 Some prompts to answer:
 
