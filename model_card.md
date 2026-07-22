@@ -70,6 +70,8 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+I noticed that my system does not give some sort of adjacency credit when considering the user's favorite genre. For example, if a user's favorite genre is "rap" and the song's genre is "hip hop," it would not get any genre match points even though these are similar. The same thing would happen if someone's favorite genre is "indie pop" and a song's genre is "pop"; my recommender doesn't consider the substring match.
+
 ---
 
 ## 7. Evaluation  
@@ -85,6 +87,15 @@ Prompts:
 
 No need for numeric metrics unless you created some.
 
+I tested the following user profiles: Lofi Chill, High-Energy Pop, Mellow Acoustic, Dance Party, Conflicting Lofi, Sad + High Energy (conflicting), and Nonexistent Category (opera/furious). I was most surprised about the Nonexistent Category user because the scores for each song were very low and the top 5 songs were within 0.09 points of each other (1.32-1.41).
+
+Lofi Chill vs. High-Energy Pop: Lofi Chill prefers low-energy lofi/chill tracks; High-Energy Pop shifts toward high-energy, intense pop tracks. This makes sense because both profiles have opposite target_energy values.
+
+Mellow Acoustic vs. Dance Party: Mellow Acoustic prefers quiet, highly acoustic classical tracks; Dance Party prefers loud, highly danceable EDM. This makes sense since they have opposite energy and danceability targets.
+
+Conflicting Lofi vs. Sad + High Energy (conflicting): Both conflicting profiles still get pulled toward their genre/mood match despite a poor energy fit. This makes sense because genre (+3.0) and mood (+1.5) outweigh energy (+0.7) in the scoring weights.
+
+Nonexistent Category (opera/furious) vs. High-Energy Pop: High-Energy prefers pop songs with higher energy; Nonexistent Category has no genre or mood matches at all, so scores flatten into a near-tie. This makes sense since removing the categorical bonus removes the main source of separation between songs.
 ---
 
 ## 8. Future Work  
