@@ -32,6 +32,15 @@ class UserProfile:
     target_valence: float = 0.5
     target_danceability: float = 0.5
 
+def _user_prefs_dict(user: UserProfile) -> Dict:
+    return {
+        "favorite_genre": user.favorite_genre,
+        "favorite_mood": user.favorite_mood,
+        "target_energy": user.target_energy,
+        "target_valence": user.target_valence,
+        "target_danceability": user.target_danceability,
+    }
+
 class Recommender:
     """
     OOP implementation of the recommendation logic.
@@ -41,12 +50,16 @@ class Recommender:
         self.songs = songs
 
     def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
-        # TODO: Implement recommendation logic
-        return self.songs[:k]
+        user_prefs = _user_prefs_dict(user)
+        song_dicts = [song.__dict__ for song in self.songs]
+        scored = recommend_songs(user_prefs, song_dicts, k=k)
+        songs_by_id = {song.id: song for song in self.songs}
+        return [songs_by_id[song_dict["id"]] for song_dict, _, _ in scored]
 
     def explain_recommendation(self, user: UserProfile, song: Song) -> str:
-        # TODO: Implement explanation logic
-        return "Explanation placeholder"
+        user_prefs = _user_prefs_dict(user)
+        _, reasons = score_song(user_prefs, song.__dict__)
+        return ", ".join(reasons)
 
 def load_songs(csv_path: str) -> List[Dict]:
     """Reads song data from a CSV file into a list of dicts with numeric fields converted to int/float."""

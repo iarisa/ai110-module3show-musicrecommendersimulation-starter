@@ -57,12 +57,4 @@ I would improve the model to enable detecting and considering genre overlaps rat
 
 ## 9. Personal Reflection  
 
-A few sentences about your experience.  
-
-Prompts:  
-
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
-
 I learned that recommender systems don't always stick with one method in isolation. Many use collaborative filtering to also add songs based on the behaviors of similar listeners. AI tools helped me understand how to write Pythonic code and also how to consider implementing the weight-based scoring system. I had to double-check the output when it generated code that was unnecessarily complicated or obscure. I will definitely consider the way recommendation systems work when I'm using Spotify, and I will also consider the methods that they employ to recommend songs that I may enjoy if they are outside my typical genre or mood preferences. 
