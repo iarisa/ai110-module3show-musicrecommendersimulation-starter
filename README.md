@@ -94,11 +94,43 @@ Paste a sample of your recommender's output here as a text block so a reader can
 
 ```
 # e.g.:
-# User profile: genre=indie, mood=chill, energy=low
-# Recommendations:
-#   1. ...
-#   2. ...
-#   3. ...
+# User profile: favorite_genre=lofi, favorite_mood=chill, target_energy=0.3, target_valence=0.7, target_danceability=0.6
+Top recommendations:
+
+1. Library Rain by Paper Lanterns — Score: 5.91
+     - genre match (+3.0)
+     - mood match (+1.5)
+     - energy diff 0.05 (+0.66)
+     - valence diff 0.10 (+0.45)
+     - danceability diff 0.02 (+0.29)
+
+2. Midnight Coding by LoRoom — Score: 5.84
+     - genre match (+3.0)
+     - mood match (+1.5)
+     - energy diff 0.12 (+0.62)
+     - valence diff 0.14 (+0.43)
+     - danceability diff 0.02 (+0.29)
+
+3. Focus Flow by LoRoom — Score: 4.38
+     - genre match (+3.0)
+     - mood mismatch (+0.0)
+     - energy diff 0.10 (+0.63)
+     - valence diff 0.11 (+0.45)
+     - danceability diff 0.00 (+0.30)
+
+4. Spacewalk Thoughts by Orbit Bloom — Score: 2.90
+     - genre mismatch (+0.0)
+     - mood match (+1.5)
+     - energy diff 0.02 (+0.69)
+     - valence diff 0.05 (+0.48)
+     - danceability diff 0.19 (+0.24)
+
+5. Coffee Shop Stories by Slow Stereo — Score: 1.43
+     - genre mismatch (+0.0)
+     - mood mismatch (+0.0)
+     - energy diff 0.07 (+0.65)
+     - valence diff 0.01 (+0.49)
+     - danceability diff 0.06 (+0.28)
 ```
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
